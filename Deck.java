@@ -30,7 +30,11 @@ public class Deck {
      * @param values is an array containing all of the card point values.
      */
     public Deck(String[] ranks, String[] suits, int[] values) {
-        String ranks[] = {"A","B","C"};
+        for (int index = 0; index < suits.length-1; index++){
+            for (int i = 0; i < ranks.length-1; i++){
+                cards.add(new Card(ranks[i], suits[index], values[i]));
+            }
+        }
     }
 
 
@@ -39,11 +43,11 @@ public class Deck {
      * @return true if this deck is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if (){
+        if (size == 0){
             return true;
         } else {
             return false;
-        }   
+        }
     }
 
     /**
@@ -51,7 +55,7 @@ public class Deck {
      * @return the number of undealt cards in this deck.
      */
     public int size() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        return size;    
     }
 
     /**
@@ -68,8 +72,11 @@ public class Deck {
      *         previously dealt.
      */
     public Card deal() {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        for (int i = 0; i < cards.size(); i++){
+            
+        }
     }
+    
 
     /**
      * Generates and returns a string representation of this deck.
@@ -95,14 +102,14 @@ public class Deck {
             rtn = rtn + cards.get(k);
             if (k != size) {
                 rtn = rtn + ", ";
-			}
-			if ((k - cards.size()) % 2 == 0) {
-				// Insert carriage returns so entire deck is visible on console.
-				rtn = rtn + "\n";
-			}
-		}
+            }
+            if ((k - cards.size()) % 2 == 0) {
+                // Insert carriage returns so entire deck is visible on console.
+                rtn = rtn + "\n";
+            }
+        }
 
-		rtn = rtn + "\n";
-		return rtn;
-	}
+        rtn = rtn + "\n";
+        return rtn;
+    }
 }
