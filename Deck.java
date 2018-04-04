@@ -30,13 +30,14 @@ public class Deck {
      * @param values is an array containing all of the card point values.
      */
     public Deck(String[] ranks, String[] suits, int[] values) {
-        for (int index = 0; index < suits.length-1; index++){
-            for (int i = 0; i < ranks.length-1; i++){
-                cards.add(new Card(ranks[i], suits[index], values[i]));
-            }
-        }
+       cards = new ArrayList<Card>();
+        for (int i = 0; i < ranks.length; i++) {
+            Card a = new Card(ranks[i], suits[i], values[i]);
+            cards.add(a);
+       }
+       size = cards.size();
+       shuffle();
     }
-
 
     /**
      * Determines if this deck is empty (no undealt cards).
@@ -72,9 +73,12 @@ public class Deck {
      *         previously dealt.
      */
     public Card deal() {
-        for (int i = 0; i < cards.size(); i++){
-            
+        if (isEmpty()){
+            return null;
         }
+        size--;
+        Card b = cards.get(size);
+        return null;
     }
     
 
