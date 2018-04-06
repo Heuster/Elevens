@@ -1,0 +1,9 @@
+Questions-
+
+Activity 2:
+1. A deck contains the cards.
+2. 6 cards 
+3. ranks={Ace, King, Queen, Jack, Ten, Nine, Eight, Seven, Six, Five, Four, Three, Two}
+   suits={Spades, Hearts, Diamonds, Clubs}
+   pointValues={11,10,10,10,10,9,8,7,6,5,4,3,2}
+4. The order does matter because you cannot make an integer into a string. But not for suits.

@@ -50,7 +50,7 @@ public class Deck {
             return false;
         }
     }
-
+    
     /**
      * Accesses the number of undealt cards in this deck.
      * @return the number of undealt cards in this deck.
@@ -78,7 +78,7 @@ public class Deck {
         }
         size--;
         Card b = cards.get(size);
-        return null;
+        return b;
     }
     
 
