@@ -11,9 +11,10 @@ public class Shuffler {
      * The number of consecutive shuffle steps to be performed in each call
      * to each sorting procedure.
      */
-    private static final int SHUFFLE_COUNT = 1;
+    private static final int SHUFFLE_COUNT = 5;
 
-
+    private static final int VALUES_COUNT = 10;
+    
     /**
      * Tests shuffling methods.
      * @param args is not used.
@@ -21,7 +22,7 @@ public class Shuffler {
     public static void main(String[] args) {
         System.out.println("Results of " + SHUFFLE_COUNT +
                                  " consecutive perfect shuffles:");
-        int[] values1 = {0, 1, 2, 3};
+        int[] values1 = new int [VALUES_COUNT];
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             perfectShuffle(values1);
             System.out.print("  " + j + ":");
@@ -34,7 +35,7 @@ public class Shuffler {
 
         System.out.println("Results of " + SHUFFLE_COUNT +
                                  " consecutive efficient selection shuffles:");
-        int[] values2 = {0, 1, 2, 3};
+        int[] values2 = new int [VALUES_COUNT];
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             selectionShuffle(values2);
             System.out.print("  " + j + ":");
@@ -55,16 +56,17 @@ public class Shuffler {
      */
     public static void perfectShuffle(int[] values) {
         //halved even test code
-        int[] shuffled = new int[52];
+        int[] half1 = new int[VALUES_COUNT/2];
+        int[] half2 = new int[VALUES_COUNT-VALUES_COUNT/2];
         int k = 0;
-        for (int j = 0; j < values.length+1; j++){
-            shuffled[k] = values[j];
+        for (int j = 0; j < VALUES_COUNT/2; j++){
+            half1[j] = values[k];
             k += 2;
         }
         //halved odd test code
         k = 1;
-        for (int j = values.length+1; j < values.length; j++){
-            shuffled[k] = values[j];
+        for (int j = values.length-1; j < VALUES_COUNT; j++){
+            half2[j] = values[k];
             k += 2;
         }
         
