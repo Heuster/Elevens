@@ -5,11 +5,29 @@ dependency1.type=UsesDependency
 dependency2.from=Deck
 dependency2.to=Card
 dependency2.type=UsesDependency
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
+objectbench.height=186
+=======
+dependency3.from=Shuffler
+dependency3.to=Card
+dependency3.type=UsesDependency
+>>>>>>> 2d8ea8b9c7c8d05ac7ffdb329a88392376af222c
 editor.fx.0.height=735
 editor.fx.0.width=699
 editor.fx.0.x=674
 editor.fx.0.y=0
+<<<<<<< HEAD
 objectbench.height=186
+=======
+objectbench.height=147
+>>>>>>> af53139f0a3020b3385106b2cdc6fc091ba73fa7
+>>>>>>> 2d8ea8b9c7c8d05ac7ffdb329a88392376af222c
 objectbench.width=657
 package.divider.horizontal=0.6
 package.divider.vertical=0.6960629921259842
