@@ -4,6 +4,7 @@
 import java.util.List;
 import java.util.ArrayList;
 
+
 public class Shuffler {
 
     /**
@@ -53,13 +54,20 @@ public class Shuffler {
             * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void perfectShuffle(int[] values) {
+        //halved even test code
+        int[] shuffled = new int[52];
         int k = 0;
-        List<Card> cardTemp;
-        cardTemp = new ArrayList<Card>();
-        for (int j = 0; j < 25; j++){
-            
-            
+        for (int j = 0; j < values.length+1; j++){
+            shuffled[k] = values[j];
+            k += 2;
         }
+        //halved odd test code
+        k = 1;
+        for (int j = values.length+1; j < values.length; j++){
+            shuffled[k] = values[j];
+            k += 2;
+        }
+        
     }
 
     /**
@@ -74,6 +82,11 @@ public class Shuffler {
      * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void selectionShuffle(int[] values) {
-        /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+        int[] shuffled = new int[52];
+        for (int k = 0; k <= 51; k++){
+            int j = (int)(Math.random()) * (52);
+            shuffled[k] = values[j];
+            values[j] = 0;
+        }
     }
 }
