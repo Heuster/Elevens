@@ -12,8 +12,6 @@ public class Shuffler {
      * to each sorting procedure.
      */
     private static final int SHUFFLE_COUNT = 5;
-
-    private static final int VALUES_COUNT = 10;
     
     /**
      * Tests shuffling methods.
@@ -22,7 +20,7 @@ public class Shuffler {
     public static void main(String[] args) {
         System.out.println("Results of " + SHUFFLE_COUNT +
                                  " consecutive perfect shuffles:");
-        int[] values1 = new int [VALUES_COUNT];
+        int[] values1 = {1,2,3,4,5};
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             perfectShuffle(values1);
             System.out.print("  " + j + ":");
@@ -35,7 +33,7 @@ public class Shuffler {
 
         System.out.println("Results of " + SHUFFLE_COUNT +
                                  " consecutive efficient selection shuffles:");
-        int[] values2 = new int [VALUES_COUNT];
+        int[] values2 = {1,2,3,4,5};
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             selectionShuffle(values2);
             System.out.print("  " + j + ":");
@@ -55,21 +53,23 @@ public class Shuffler {
             * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void perfectShuffle(int[] values) {
-        //halved even test code
-        int[] half1 = new int[VALUES_COUNT/2];
-        int[] half2 = new int[VALUES_COUNT-VALUES_COUNT/2];
-        int k = 0;
-        for (int j = 0; j < VALUES_COUNT/2; j++){
-            half1[j] = values[k];
-            k += 2;
+        //testing
+        //temp1 is odd
+        //temp2 is even
+        int[] temp1 = new int[values.length/2];
+        int[] temp2 = new int[values.length-values.length/2];
+        for (int i = 0; i < temp1.length; i++){
+            temp1[i] = values[i];
         }
-        //halved odd test code
-        k = 1;
-        for (int j = values.length-1; j < VALUES_COUNT; j++){
-            half2[j] = values[k];
-            k += 2;
+        for (int i = 0; i < temp2.length; i++){
+            temp2[i] = values[i+temp1.length];
+        }   
+        for (int i = 0, j = 0; i < values.length; i +=2, j++){
+            values[i] = temp2[j];
         }
-        
+        for (int i = 1, j = 0; i < values.length; i +=2, j++){
+            values[i] = temp1[j];
+        }
     }
 
     /**
@@ -84,11 +84,11 @@ public class Shuffler {
      * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void selectionShuffle(int[] values) {
-        int[] shuffled = new int[52];
-        for (int k = 0; k <= 51; k++){
-            int j = (int)(Math.random()) * (52);
-            shuffled[k] = values[j];
-            values[j] = 0;
+        for (int i = 0; i <= values.length-1; i++){
+            int j = (int)(Math.random()) * (i);
+            int temp = values[i];
+            values[i] = values[j];
+            values[j] = temp;
         }
     }
 }
